@@ -4,8 +4,7 @@ import datetime
 import sys, os
 import requests
 import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import storage
+from firebase_admin import credentials, storage
 from uuid import uuid4
 import schedule
 
@@ -34,9 +33,9 @@ def imgUpload(file):
 def take_photo():
 
     #중복없는 파일명(시간 바탕으로)
-    basename = "cap"
-    suffix = datetime.datetime.now().strftime("%Y%m%d_%H%M%S") + '.jpg'
-    filename = "_".join([basename, suffix])
+    # filename = datetime.datetime.now().strftime("%Y%m%d_%H%M%S") + '.jpg'
+    filename = 'image.jpg'
+
 
     #해상도 설정
     camera = PiCamera()
@@ -53,13 +52,6 @@ def take_photo():
 
     camera.stop_preview()
     camera.close()
- 
-#메모리 관리
-def clearPhoto():
-    # 폴더 안 이미지 제거
-    path = '/home/pi/image_store'
-    os.system('rm -rf %s/*' % path)
- 
  
 #10초 마다 실행
 schedule.every(10).seconds.do(take_photo)
