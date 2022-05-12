@@ -19,20 +19,22 @@ if __name__ == "__main__":
     db = firestore.client()
 
     while (True):
-        # 저장소 access
+        #저장소 access
         bucket = storage.bucket()
         blob = bucket.get_blob('image_store/image.jpg')  # blob
         arr = np.frombuffer(blob.download_as_string(), np.uint8)  # array of bytes
 
         img_ori = cv2.imdecode(arr, cv2.COLOR_BGR2BGR555)  # Firebase에서 불러온 사진
 
+
         # cv2.imshow('image', img)
         # cv2.waitKey(0)
-
-        #계산하고자 하는 이미지
-        # img = r'image\abc.jpg'
+        #
+        # #local image 사용
+        # #계산하고자 하는 이미지
+        # img = r'image\abcd.jpg'
         # img_ori = cv2.imread(img)
-
+        #
         # # 테스트용 원본이미지 출력
         # plt.figure(1)
         # plt.imshow(img_ori)
@@ -67,13 +69,14 @@ if __name__ == "__main__":
         doc_ref = db.collection(u'counting').document(u'number')
         doc_ref.set({
             u'count': int(crowd_count)
+           # u'date': current.tm_mon current.tm_mday
         })
 
-        # #테스트용 이미지 출력
+        # #테스트용 이미지 출력 (images w/ dots)
         # plt.figure(1)
         # plt.imshow(density[0, 0, :, :])
         # plt.axis('off')
         # pylab.show()
 
         #10초마다 반복
-        time.sleep(10)
+        time.sleep(60)
