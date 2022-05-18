@@ -8,6 +8,7 @@ import threading
 import firebase_admin
 from firebase_admin import credentials, storage, firestore
 
+
 #pre-trained된 모델 경로
 model_path = 'model\\'
 
@@ -66,11 +67,11 @@ if __name__ == "__main__":
         print("계산된 인원 수: ", int(crowd_count))
 
         # firestore에 데이터 추가
-        doc_ref = db.collection(u'counting').document(u'number')
-        doc_ref.set({
-            u'count': int(crowd_count)
-           # u'date': current.tm_mon current.tm_mday
-        })
+        data = {u'count': int(crowd_count), u'time': firestore.SERVER_TIMESTAMP}
+        doc_ref = db.collection(u'counting').document()
+        doc_ref.set(data, merge=True)
+
+
 
         # #테스트용 이미지 출력 (images w/ dots)
         # plt.figure(1)
@@ -78,5 +79,5 @@ if __name__ == "__main__":
         # plt.axis('off')
         # pylab.show()
 
-        #10초마다 반복
-        time.sleep(60)
+        #()초마다 반복
+        time.sleep(10)
