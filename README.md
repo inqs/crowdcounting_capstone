@@ -18,16 +18,20 @@ INU Capstone Project '21-'22
   
 ## Output  
 * input 사진    
-  <img src="https://user-images.githubusercontent.com/94462842/160598324-906ab847-34fe-4fc4-8ce0-6933f6564c1a.PNG" width="500" height="500">  
+![input](https://user-images.githubusercontent.com/94462842/169660224-57faf285-40d3-469f-a8c5-dcc0373caf16.PNG)
+
   
 * pre-trained 데이터셋을 바탕으로 cnn 처리된 이미지    
-![res_img](https://user-images.githubusercontent.com/94462842/160594072-227b05cb-0aee-44b8-85c2-b47950c6de3c.PNG)  
+![out](https://user-images.githubusercontent.com/94462842/169660228-c1340bc7-8526-42a7-8384-b21ed8024f7a.PNG)
+
   
 * 콘솔 output    
-![result](https://user-images.githubusercontent.com/94462842/160594112-43411239-a13d-48ac-8152-475f56a89686.PNG)  
+![console](https://user-images.githubusercontent.com/94462842/169660233-0ec124e1-25b8-4a20-9154-b7e38c2eddca.PNG)
+
 
 * Firestore DB로 결과값 저장    
-![firestore](https://user-images.githubusercontent.com/94462842/160594172-329148fd-e338-4b7d-9008-b01afbeee4ca.PNG)  
+![db](https://user-images.githubusercontent.com/94462842/169660234-e6b0ac0b-c0bd-48b2-9255-bc9a421c91dd.PNG)
+
   
 
 ## 출처  
